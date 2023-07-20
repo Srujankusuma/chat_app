@@ -9,17 +9,20 @@ export const ProfileProvider = ({ children }) => {
 
   useEffect(() => {
     let userRef;
+
     const authUnsub = auth.onAuthStateChanged(authObj => {
       if (authObj) {
         userRef = database.ref(`/profiles/${authObj.uid}`);
         userRef.on('value', snap => {
           const { name, createdAt } = snap.val();
+
           const data = {
             name,
             createdAt,
             uid: authObj.uid,
             email: authObj.email,
           };
+
           setProfile(data);
           setIsLoading(false);
         });
