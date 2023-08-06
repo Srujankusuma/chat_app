@@ -1,11 +1,11 @@
-import react, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useModalState } from '../../misc/custom-hooks';
 
 import { Alert, Button, Modal } from 'rsuite';
 import AvatarEditor from 'react-avatar-editor';
 import { database, storage } from '../../misc/firebase';
 import { useProfile } from '../../context/profile.context';
-import ProfileAvatar from './ProfileAvatar';
+import ProfileAvatar from '../ProfileAvatar';
 
 const fileInputType = '.png, .jpeg, .jpg';
 const acceptedFileTypes = ['image/png', 'image/jpeg', 'image/pjpeg'];
